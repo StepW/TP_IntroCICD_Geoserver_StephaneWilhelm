@@ -1,3 +1,13 @@
+# Important, a lire!
+*Ceci est une version non-officielle de gerserveur*
+*Elle est utilisée dans le cadre de la réalisation du TP d'itégration continue et déploiement continue*
+*Ce travail a été réalisé dans le cadre de la formation TSI à l'ENSG*
+
+Travail réalisé par Stéphane Wilhelm, de la formaiton TSI à l'ENSG
+
+Pour l'utilisation d'une version optimale de geoserver, le code source d'origine est disponible via le lien suivant:
+https://github.com/geoserver/geoserver.
+
 <img src="/doc/en/themes/geoserver/static/GeoServer_500.png" width="353">
 
 [![Gitter](https://badges.gitter.im/geoserver/geoserver.svg)](https://gitter.im/geoserver/geoserver?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
