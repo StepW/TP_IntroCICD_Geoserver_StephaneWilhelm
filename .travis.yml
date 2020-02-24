@@ -2,6 +2,8 @@ jobs:
   include:
     - stage: build
       script: echo "i do some build!"
-      # stage name not required, will continue to use `test
+      # stage name not required, will continue to use `test`
+    - stage: test
+      script: sh "./scripts/tests.sh"
     - stage: deploy
       script: echo "i do a deploy!"
