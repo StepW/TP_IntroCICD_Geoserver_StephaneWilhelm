@@ -1,9 +1,15 @@
+---
 jobs:
   include:
+#lancement de la phase de build
     - stage: build
       script: sh "./scripts/build.sh"
-      # stage name not required, will continue to use `test`
+#phase de test
     - stage: test
       script: sh "./scripts/tests.sh"
+#phase de déploiement
     - stage: deploy
       script: echo "i do a deploy!"
+
+language: java
+
