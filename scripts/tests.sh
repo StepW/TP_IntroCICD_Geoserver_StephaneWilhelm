@@ -1,2 +1,2 @@
 cd src
-mvn clean install
+mvn clean test

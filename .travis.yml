@@ -1,15 +1,14 @@
----
-jobs:
-  include:
-#lancement de la phase de build
-    - stage: build
-      script: sh "./scripts/build.sh"
-#phase de test
-    - stage: test
-      script: sh "./scripts/tests.sh"
-#phase de déploiement
-    - stage: deploy
-      script: echo "i do a deploy!"
-
+--- 
+jobs: 
+  include: 
+    - 
+      script: "sh \"./scripts/build.sh\""
+      stage: build
+    - 
+      script: "sh \"./scripts/tests.sh\""
+      stage: test
+    - 
+      script: "echo \"i do a deploy!\""
+      stage: deploy
 language: java
 
