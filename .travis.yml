@@ -1,14 +1,18 @@
 --- 
 jobs: 
   include: 
-    - 
-      script: "sh \"./scripts/build.sh\""
-      stage: build
-    - 
+    - stage: build
+      # phase de build
+      # script: "sh \"./scripts/build.sh\""
+      # generation de la doc web statique
+      script: echo "hello"
+      script: "World"
+      
+    - stage: test
       script: "sh \"./scripts/tests.sh\""
-      stage: test
-    - 
+      
+    - stage: deploy
       script: "echo \"i do a deploy!\""
-      stage: deploy
+      
 language: java
 
