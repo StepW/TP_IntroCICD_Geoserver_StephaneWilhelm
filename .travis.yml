@@ -1,7 +1,7 @@
 jobs:
   include:
     - stage: build
-      script: echo "i do some build!"
+      script: sh "./scripts/build.sh"
       # stage name not required, will continue to use `test`
     - stage: test
       script: sh "./scripts/tests.sh"
