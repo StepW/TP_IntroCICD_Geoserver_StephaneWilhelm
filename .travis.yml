@@ -6,7 +6,6 @@ jobs:
       # script: "sh \"./scripts/build.sh\""
       # generation de la doc web statique
       script: echo "hello"
-      script: echo "World"
       
     - stage: test
       script: "sh \"./scripts/tests.sh\""
