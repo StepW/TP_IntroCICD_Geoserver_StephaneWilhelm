@@ -15,7 +15,7 @@ public class ExceptionLocalizeTest {
     @Test
     public void test() throws Exception {
         GeoServerException e = new TestException().id("hi");
-        assertEquals("hello", GeoServerExceptions.localize(e));
+        assertEquals("bonjour", GeoServerExceptions.localize(e));
     }
 
     @Test
@@ -35,13 +35,13 @@ public class ExceptionLocalizeTest {
     @Test
     public void testUnknownLocale() throws Exception {
         GeoServerException e = new TestException().id("hi");
-        assertEquals("hello", GeoServerExceptions.localize(e, Locale.GERMAN));
+        assertEquals("bonjour", GeoServerExceptions.localize(e, Locale.GERMAN));
     }
 
     @Test
     public void testWithArgs() throws Exception {
         GeoServerException e = new TestException().id("hey").args("neo");
-        assertEquals("hello neo", GeoServerExceptions.localize(e));
+        assertEquals("bonjour neo", GeoServerExceptions.localize(e));
         assertEquals("bonjour neo", GeoServerExceptions.localize(e, Locale.FRENCH));
     }
 
