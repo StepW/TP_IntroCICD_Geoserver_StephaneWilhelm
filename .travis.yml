@@ -5,13 +5,24 @@ jobs:
       # phase de build
       # script: "sh \"./scripts/build.sh\""
       # generation de la doc web statique
-      script: echo "hello"
+      script: sh './scripts/build.sh'
       
     - stage: test
-      script: "sh \"./scripts/tests.sh\""
+      script: echo 'do tests'
+      #script: "sh \"./scripts/tests.sh\""
       
     - stage: deploy
       script: "echo \"i do a deploy!\""
       
 language: java
 
+
+#test para:
+#env:
+#- TEST_SUITE="travis-job-codecov-linter.sh"
+#- TEST_SUITE="travis-job-cypress-boxes.sh"
+#- TEST_SUITE="travis-job-cypress-products.sh"
+#- TEST_SUITE="travis-job-cypress-signup.sh"
+#- TEST_SUITE="travis-job-cypress-controls.sh"
+#- TEST_SUITE="travis-job-build.sh"
+#script: ./${TEST_SUITE}
