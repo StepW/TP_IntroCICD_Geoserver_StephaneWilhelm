@@ -4,7 +4,11 @@ jobs:
     - stage: build
       script: "sh './scripts/build.sh'"
     - stage: test
-      script: "sh './scripts/test.sh'"
+#      script: "sh './scripts/test.sh'"
+      name: wms
+      script: "mvn -f src/wms test"
+    - name: wfs
+      script: "mvn -f src/wfs test"
     - stage: deploy	
       script: "echo 'i do a ! deploy'"
       
