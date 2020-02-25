@@ -8,10 +8,10 @@ jobs:
       script: "sh './scripts/build.sh'"
     - stage: test
       name: testing
+      script: jdk_switcher use openjdk8
       script: "sh './scripts/tests.sh'"
       script: jdk_switcher use oraclejdk8
-	 
-      script: jdk_switcher use openjdk8
+      script: "sh './scripts/tests.sh'"
 # do stuff with open Java 8
     - stage: deploy	
       name: deploying
