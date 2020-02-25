@@ -7,7 +7,6 @@ jobs:
 #      name: building-project
 #      script: "sh './scripts/build.sh'"
     - stage: test
-      name: testing
     - name: test on jdk8
       script: jdk_switcher use openjdk8
       script: "sh './scripts/tests.sh'"
