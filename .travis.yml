@@ -12,7 +12,7 @@ jobs:
       script: jdk_switcher use oraclejdk8
 	 
       script: jdk_switcher use openjdk8
-	  - # do stuff with open Java 8
+# do stuff with open Java 8
     - stage: deploy	
       name: deploying
       script: "sh './scripts/deploy.sh'"
