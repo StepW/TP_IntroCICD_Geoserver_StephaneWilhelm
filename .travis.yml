@@ -21,6 +21,7 @@ jobs:
 #      jdk: oraclejdk11
       script: 
 #      - jdk_switcher use oraclejdk-11
+      - jdk_switcher use openjdk10
       - export JAVA_HOME=$HOME/openjdk11
       - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
       - "sh './scripts/tests.sh'"
