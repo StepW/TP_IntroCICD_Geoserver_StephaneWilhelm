@@ -2,9 +2,9 @@ language: java
 jobs: 
   include: 
     - stage: build
-      script: sh "sh './scripts/build.sh'"
+      script: "sh './scripts/build.sh'"
     - stage: test
-      script: sh "sh './scripts/test.sh'"
+      script: "sh './scripts/test.sh'"
     - stage: deploy	
       script: "echo 'i do a ! deploy'"
       
