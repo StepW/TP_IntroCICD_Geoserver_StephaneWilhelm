@@ -1,10 +1,8 @@
 --- 
-env:
-  - TESTFOLDER=src/web
-  - TESTFOLDER=src/wms
 
-  - TEST_SUITE=units
-  - TEST_SUITE=integration
+#env:
+#  - TESTFOLDER=src/wfs
+#  - TESTFOLDER=src/wms
 
 language: java
 
@@ -18,7 +16,11 @@ jobs:
       
     - stage: test
 #      script: echo 'do tests'
-      script: "mvn clean test $TESTFOLDER"
+      name: WMS
+      script: mvn test src/wms
+      - name: WFS
+      script: mvn test src/wfs
+	
       
     - stage: deploy
       script: echo 'i do a deploy!'
