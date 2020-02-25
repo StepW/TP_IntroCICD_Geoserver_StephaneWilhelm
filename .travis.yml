@@ -7,13 +7,6 @@ before_install:
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 install:
   - sudo pip install sphinx requests
-
-jdk:
-  - oraclejdk8
-  - oraclejdk11
-  - openjdk10
-  - openjdk11
-
 jobs: 
   include: 
 #    - stage: build
