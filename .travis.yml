@@ -16,6 +16,7 @@ jobs:
     - stage: test
       name: test on jdk8
 #      jdk: oraclejdk8
+      script:
       - jdk_switcher use oraclejdk8
       - "sh './scripts/tests.sh'"
     - name: test on jdk11
