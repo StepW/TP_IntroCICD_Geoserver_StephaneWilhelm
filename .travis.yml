@@ -1,19 +1,12 @@
 sudo: true
 
-jdk:
-  - oraclejdk8
-  - oraclejdk11
-  - openjdk10
-  - openjdk11
-
-
 language: java
 dist: trusty
 os: linux
 before_install:
   - rm ~/.m2/settings.xml
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-#  - sh 'install-jdk.sh'
+  - sh 'install-jdk.sh'
 install:
   - sudo pip install sphinx requests
 
