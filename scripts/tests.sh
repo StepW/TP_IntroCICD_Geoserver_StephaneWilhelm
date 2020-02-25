@@ -1,2 +1,2 @@
-cd src
+cd src/wms
 mvn clean test

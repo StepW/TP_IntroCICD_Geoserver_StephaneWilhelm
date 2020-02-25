@@ -1,4 +1,10 @@
 --- 
+cache:
+  directories:
+    - "$HOME/.m2"
+    - downloads
+
+language: java
 jobs: 
   include: 
     - stage: build
@@ -14,9 +20,26 @@ jobs:
     - stage: deploy
       script: "echo \"i do a deploy!\""
       
-language: java
 
 
+matrix:
+  include:
+    - jdk: oraclejdk8
+      dist: trusty
+      env: ACTION=build ARGS="-Dfmt.skip=true" COMMUNITY_ARGS=$ARGS 
+      name: Java 8 build
+    - jdk: openjdk11
+      env: ACTION=build ARGS="-Dfmt.skip=true" COMMUNITY_ARGS=$ARGS
+      name: Java 11 build
+    - jdk: openjdk11
+      env: ACTION=build ARGS="-Dfmt.action=check -Dqa -DskipTests=true" COMMUNITY_ARGS="-Dfmt.action=check -DskipTests=true"
+      name: QA build on Java 11
+    - jdk: openjdk11
+      env: ACTION=docs
+      name: Documentation build
+    - jdk: openjdk11
+      env: ACTION=package
+      name: Build release packages
 #test para:
 #env:
 #- TEST_SUITE="travis-job-codecov-linter.sh"
