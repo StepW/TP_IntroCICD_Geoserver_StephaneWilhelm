@@ -10,16 +10,15 @@ jobs:
   include: 
     - stage: build
       # phase de build
-      # script: sh './scripts/build.sh'
-      # generation de la doc web statique
       script: sh './scripts/build.sh'
       
     - stage: test
+      script: sh './scripts/test.sh'
 #      script: echo 'do tests'
-      name: WMS
-      script: mvn test -f src/wms
-      - name: WFS
-      script: mvn test -f src/wfs
+#      name: WMS
+#      script: mvn test -f src/wms
+#      - name: WFS
+#      script: mvn test -f src/wfs
 	
       
     - stage: deploy
