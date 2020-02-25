@@ -3,26 +3,20 @@
 #env:
 #  - TESTFOLDER=src/wfs
 #  - TESTFOLDER=src/wms
-
-language: java
-
+--- 
 jobs: 
   include: 
-    - stage: build
-      # phase de build
-      script: sh './scripts/build.sh'
-      
-    - stage: test
-      script: sh './scripts/test.sh'
-#      script: echo 'do tests'
-#      name: WMS
-#      script: mvn test -f src/wms
-#      - name: WFS
-#      script: mvn test -f src/wfs
-	
-      
-    - stage: deploy
-      script: echo 'i do a deploy!'
+    - 
+      script: "sh './scripts/build.sh'"
+      stage: build
+    - 
+      script: "sh './scripts/test.sh'"
+      stage: test
+    - 
+      script: "echo 'i do a deploy!'"
+      stage: deploy
+language: java
+
 
 # script: skip
 # deploy: &heroku
