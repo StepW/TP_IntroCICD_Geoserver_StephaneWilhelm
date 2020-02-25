@@ -1,13 +1,22 @@
 sudo: true
+
+jdk:
+  - oraclejdk8
+  - oraclejdk11
+  - openjdk10
+  - openjdk11
+
+
 language: java
 dist: trusty
 os: linux
 before_install:
   - rm ~/.m2/settings.xml
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-  - sh './install-jdk.sh'
+#  - sh 'install-jdk.sh'
 install:
   - sudo pip install sphinx requests
+
 jobs: 
   include: 
 #    - stage: build
@@ -15,12 +24,14 @@ jobs:
 #      script: "sh './scripts/build.sh'"
     - stage: test
       name: test on jdk8
+      jdk: openjdk11
 #      jdk: oraclejdk8
+      
       script:
-      - jdk_switcher use oraclejdk8
-      - "sh './scripts/tests.sh'"
+#      - jdk_switcher use oraclejdk8
+#      - "sh './scripts/tests.sh'"
     - name: test on jdk11
-#      jdk: oraclejdk11
+      jdk: oraclejdk11
       script: 
 #      - jdk_switcher use oraclejdk-11
       - jdk_switcher use openjdk10
