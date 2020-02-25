@@ -17,9 +17,9 @@ jobs:
     - stage: test
 #      script: echo 'do tests'
       name: WMS
-      script: mvn test src/wms
+      script: mvn test -f src/wms
       - name: WFS
-      script: mvn test src/wfs
+      script: mvn test -f src/wfs
 	
       
     - stage: deploy
