@@ -16,9 +16,9 @@ jobs:
       - jdk_switcher use openjdk8
       - "sh './scripts/tests.sh'"
     - name: test on jdk11
-      script: jdk_switcher use openjdk11
-      script: "sh './scripts/tests.sh'"
-# do stuff with open Java 8
+      script: 
+      - jdk_switcher use openjdk11
+      - "sh './scripts/tests.sh'"
     - stage: deploy	
       name: deploying
       script: "sh './scripts/deploy.sh'"
