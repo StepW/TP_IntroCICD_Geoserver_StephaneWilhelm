@@ -1,13 +1,34 @@
 
 language: java
-
+before_install:
+  - rm ~/.m2/settings.xml
+  - unset _JAVA_OPTIONS
+before_script:
+  - mkdir -p downloads
+  - export MAVEN_ZIP=apache-maven-$MAVEN_VERSION-bin.zip
+  - |
+    if [ ! -f downloads/$MAVEN_ZIP ]; then
+      wget -P downloads https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/$MAVEN_ZIP
+    fi
+  - export SMART_JAR=takari-smart-builder-$TAKARI_SMART_BUILDER_VERSION.jar
+  - |
+    if [ ! -f downloads/$SMART_JAR ]; then
+      wget -P downloads https://repo1.maven.org/maven2/io/takari/maven/takari-smart-builder/$TAKARI_SMART_BUILDER_VERSION/$SMART_JAR
+    fi
+  - unzip downloads/$MAVEN_ZIP
+  - export M2_HOME=$PWD/apache-maven-$MAVEN_VERSION
+  - cp downloads/$SMART_JAR $M2_HOME/lib/ext
+  - export PATH=$M2_HOME/bin:$PATH
+  - mvn --version
+install:
+  - if [ "$ACTION" == "docs" ]; then sudo pip install sphinx requests; fi
 jobs: 
   include: 
 #    - stage: build
 #      name: building-project
 #      script: "sh './scripts/build.sh'"
     - stage: test
-    - name: test on jdk8
+      name: test on jdk8
       script: jdk_switcher use openjdk8
       script: "sh './scripts/tests.sh'"
     - name: test on jdk11
