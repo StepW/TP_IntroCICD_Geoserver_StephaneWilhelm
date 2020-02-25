@@ -1,36 +1,10 @@
---- 
-
-#env:
-#  - TESTFOLDER=src/wfs
-#  - TESTFOLDER=src/wms
---- 
+language: java
 jobs: 
   include: 
-    - 
+    - stage: build
       script: sh "sh './scripts/build.sh'"
-      stage: build
-    - 
+    - stage: test
       script: sh "sh './scripts/test.sh'"
-      stage: test
-    - 
+    - stage: deploy	
       script: "echo 'i do a ! deploy'"
-      stage: deploy
-language: java
-
-
-# script: skip
-# deploy: &heroku
-#  provider: heroku
-#  app: sf-stages-staging
-#  api_key: $HEROKU_AUTH_TOKEN
-
-
-#test para:
-#env:
-#- TEST_SUITE="travis-job-codecov-linter.sh"
-#- TEST_SUITE="travis-job-cypress-boxes.sh"
-#- TEST_SUITE="travis-job-cypress-products.sh"
-#- TEST_SUITE="travis-job-cypress-signup.sh"
-#- TEST_SUITE="travis-job-cypress-controls.sh"
-#- TEST_SUITE="travis-job-build.sh"
-#script: ./${TEST_SUITE}
+      
