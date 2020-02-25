@@ -4,14 +4,16 @@ language: java
 jobs: 
   include: 
     - stage: build
+      name: building-project
       script: "sh './scripts/build.sh'"
     - stage: test
+      name: testing
       script: "sh './scripts/tests.sh'"
-	script:
-	  - jdk_switcher use oraclejdk8
-	  - # do stuff with Java 8
-	  - jdk_switcher use openjdk8
+      script: jdk_switcher use oraclejdk8
+	 
+      script: jdk_switcher use openjdk8
 	  - # do stuff with open Java 8
     - stage: deploy	
+      name: deploying
       script: "sh './scripts/deploy.sh'"
 
