@@ -4,7 +4,7 @@ dist: trusty
 os: linux
 before_install:
   - rm ~/.m2/settings.xml
-  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+#  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 install:
   - sudo pip install sphinx requests
 
@@ -15,19 +15,18 @@ jobs:
 #      script: "sh './scripts/build.sh'"
     - stage: test
       name: test on jdk8
-      jdk: openjdk11
+      jdk: openjdk8
 #      jdk: oraclejdk8
       
       script:
 #      - jdk_switcher use oraclejdk8
-#      - "sh './scripts/tests.sh'"
+      - "sh './scripts/tests.sh'"
     - name: test on jdk11
       jdk: oraclejdk11
       script: 
 #      - jdk_switcher use oraclejdk-11
-      - jdk_switcher use openjdk10
-      - export JAVA_HOME=$HOME/openjdk11
-      - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
+#      - export JAVA_HOME=$HOME/openjdk11
+#      - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
       - "sh './scripts/tests.sh'"
     - stage: deploy	
       name: deploying
