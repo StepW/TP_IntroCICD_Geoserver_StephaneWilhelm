@@ -7,13 +7,13 @@
 jobs: 
   include: 
     - 
-      script: "sh './scripts/build.sh'"
+      script: sh './scripts/build.sh'
       stage: build
     - 
-      script: "sh './scripts/test.sh'"
+      script: sh './scripts/test.sh'
       stage: test
     - 
-      script: "echo 'i do a deploy!'"
+      script: echo 'i do a !'
       stage: deploy
 language: java
 
