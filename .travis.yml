@@ -1,16 +1,6 @@
-cache:
-  directories:
-    - "$HOME/.m2"
-    - downloads
+
 language: java
-before_install:
-  - rm ~/.m2/settings.xml
-  - unset _JAVA_OPTIONS
-env:
-  global:
-    - MAVEN_OPTS=-Xmx512m
-    - MAVEN_VERSION=3.6.3
-    - TAKARI_SMART_BUILDER_VERSION=0.6.1
+
 jobs: 
   include: 
     - stage: build
@@ -19,15 +9,4 @@ jobs:
       script: "sh './scripts/tests.sh'"
     - stage: deploy	
       script: "sh './scripts/deploy.sh'"
-      
-matrix:
-  include:
-    - jdk: oraclejdk8
-      dist: trusty
-      env: ACTION=build ARGS="-Dfmt.skip=true" COMMUNITY_ARGS=$ARGS 
-      name: Java 8 build
-    - jdk: openjdk11
-      env: ACTION=build ARGS="-Dfmt.skip=true" COMMUNITY_ARGS=$ARGS
-      name: Java 11 build
-    - jdk: openjdk11
-      env: ACTION=build ARGS="-Dfmt.action=check -Dqa -DskipTests=true" COMMUNITY_ARGS="-Dfmt.action=check -DskipTests=true"
+
