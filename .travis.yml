@@ -15,12 +15,12 @@ jobs:
       name: test on jdk8
 #      jdk: oraclejdk8
       script:
-      - jdk_switcher use openjdk8
+      - jdk_switcher use oraclejdk8
       - "sh './scripts/tests.sh'"
     - name: test on jdk11
 #      jdk: oraclejdk11
       script: 
-      - jdk_switcher use openjdk11
+      - jdk_switcher use oraclejdk-11
       - "sh './scripts/tests.sh'"
     - stage: deploy	
       name: deploying
