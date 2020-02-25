@@ -5,9 +5,7 @@ os: linux
 before_install:
   - rm ~/.m2/settings.xml
 install:
-  - pip install sphinx requests
-
-
+  - sudo pip install sphinx requests
 jobs: 
   include: 
 #    - stage: build
