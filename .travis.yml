@@ -1,5 +1,6 @@
 
 language: java
+os: linux
 before_install:
   - rm ~/.m2/settings.xml
   - unset _JAVA_OPTIONS
@@ -13,11 +14,11 @@ jobs:
     - stage: test
       name: test on jdk8
       script: 
-      - jdk_switcher use openjdk8
+      - jdk_switcher use oraclejdk8
       - "sh './scripts/tests.sh'"
     - name: test on jdk11
       script: 
-      - jdk_switcher use openjdk11
+      - jdk_switcher use oraclejdk11
       - "sh './scripts/tests.sh'"
     - stage: deploy	
       name: deploying
