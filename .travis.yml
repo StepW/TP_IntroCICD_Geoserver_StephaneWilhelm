@@ -9,10 +9,10 @@ jobs:
     - stage: test
       name: testing
     - name: test on jdk8
-      script: jdk_switcher use oraclejdk8
+      script: jdk_switcher use openjdk8
       script: "sh './scripts/tests.sh'"
     - name: test on jdk11
-      script: jdk_switcher use oraclejdk11
+      script: jdk_switcher use openjdk11
       script: "sh './scripts/tests.sh'"
 # do stuff with open Java 8
     - stage: deploy	
