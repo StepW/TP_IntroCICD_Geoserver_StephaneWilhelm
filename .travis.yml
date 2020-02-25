@@ -5,7 +5,7 @@ os: linux
 before_install:
   - rm ~/.m2/settings.xml
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-  - install -jdk.sh
+#  - install -jdk.sh
 install:
   - sudo pip install sphinx requests
 jobs: 
