@@ -24,8 +24,6 @@ jobs:
     - stage: deploy
       script: echo 'i do a deploy!'
 
-      
-
 # script: skip
 # deploy: &heroku
 #  provider: heroku
