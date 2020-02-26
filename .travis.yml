@@ -44,6 +44,8 @@ cache:
 jobs:
  include:
   - stage: build
+    before_install:
+      - cd src
     script:
       - echo 'build'
       #- cd doc/en
@@ -54,7 +56,6 @@ jobs:
       #- mvn compile -Pdeveloper
       #- mvn compile -Pdocguide
       #- cd ../../src
-      - cd src
       - mvn -DskipTests clean install
   - stage: test
     before_install:
