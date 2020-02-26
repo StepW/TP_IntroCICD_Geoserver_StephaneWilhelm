@@ -71,14 +71,15 @@ jobs:
     script: echo 'test'
   - stage: deploy
     #script: echo 'do deploy'
+    before-deploy:
+     - cd doc/en
     deploy:
-        name: deploying
         provider: pages 
         skip_cleanup: true
         github_token: $GITHUB_KEY # defined via the Travis interface
         #local_dir: build/html
         on:
-         branch: master
+         all-branches: true
          #repo: doc/en/target/docguide/html
     
 
