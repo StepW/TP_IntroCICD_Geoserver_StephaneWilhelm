@@ -69,19 +69,19 @@ jobs:
     jdk: openjdk11
     #script: mvn clean install
     script: echo 'test'
-  #- stage: deploy
+  - stage: deploy
   #- name: deploy
     #script: echo 'do deploy'
 
     
-before_deploy:
- #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
- - cd doc/en
-deploy:
-    provider: releases 
-    skip_cleanup: true
-    github_token: $GITHUB_KEY # defined via the Travis interface
-    #local_dir: build/html
+    script:
+     #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+     - cd doc/en
+    deploy:
+        provider: releases 
+        skip_cleanup: true
+        github_token: $GITHUB_KEY # defined via the Travis interface
+        #local_dir: build/html
     on:
      all-branches: true
      #repo: doc/en/target/docguide/html
