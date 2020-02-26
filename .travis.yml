@@ -1,32 +1,34 @@
 
 language: java
+dist: xenial
 
 #jdk:
 #  - oraclejdk8
   #- oraclejdk11
 
-jobs: 
-  include: 
+jdk:
+ - openjdk8
+ - openjdk11
+
+
+
+
+#jobs: 
+#  include: 
 #    - stage: build
 #      name: building-project
 #      script: "sh './scripts/build.sh'"
-    - stage: test
-      name: test on jdk8
-      jdk: openjdk8
-#      jdk: oraclejdk8
-      
-      script:
-#      - jdk_switcher use oraclejdk8
-      - "sh './scripts/tests.sh'"
-    - name: test on jdk11
-      jdk: oraclejdk11
-      script: 
-#      - jdk_switcher use oraclejdk-11
-#      - export JAVA_HOME=$HOME/openjdk11
-#      - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
-      - "sh './scripts/tests.sh'"
-    - stage: deploy	
-      script: "sh './scripts/deploy.sh'"
+#    - stage: test
+#      name: test on jdk8
+#      jdk: openjdk8
+#      script:
+#      - "sh './scripts/tests.sh'"
+#    - name: test on jdk11
+#      jdk: oraclejdk11
+#      script: 
+#      - "sh './scripts/tests.sh'"
+#    - stage: deploy	
+#      script: "sh './scripts/deploy.sh'"
 #deploy:
 #      name: deploying
 #      provider: releases
