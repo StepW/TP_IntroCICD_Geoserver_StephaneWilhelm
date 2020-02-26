@@ -12,7 +12,7 @@ jdk:
  - openjdk11
 
 before_deploy:
-  - echo "Deploying"
+  - echo "deploying"
 
 deploy:
     - name: deploying
@@ -28,6 +28,7 @@ script:
     # src building
     #- mvn clean install
     # without test
+    - echo "building and testing"
     - mvn -DskipTests clean install
     # doc building
 after_success:
