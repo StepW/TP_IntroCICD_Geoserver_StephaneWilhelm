@@ -69,7 +69,8 @@ jobs:
     jdk: openjdk11
     #script: mvn clean install
     script: echo 'test'
-  - stage: deploy
+  #- stage: deploy
+  - name: deploy
     #script: echo 'do deploy'
     before-deploy:
      #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
