@@ -47,16 +47,15 @@ jobs:
     before_install:
       - cd src
     script:
-      - mvn -DskipTests clean install
-      - cd ../doc/en
-      - mvn clean install
-      - mvn process-resources
-      - mvn compile
-      - mvn compile -Puser
-      - mvn compile -Pdeveloper
-      - mvn compile -Pdocguide
-      #- cd ../../src
-      # - mvn -DskipTests clean install
+      - echo 'build'
+     # - mvn -DskipTests clean install
+     # - cd ../doc/en
+     # - mvn clean install
+     # - mvn process-resources
+     # - mvn compile
+     # - mvn compile -Puser
+     # - mvn compile -Pdeveloper
+     # - mvn compile -Pdocguide
   - stage: test
     before_install:
       - cd src
@@ -73,9 +72,11 @@ jobs:
   - stage: deploy
     #script: echo 'do deploy'
     deploy:
+        before_install:
+         - cd doc/en
         provider: pages 
         skip_cleanup: true
-        github_token: $GITHUB_API_KEY # defined via the Travis interface
+        github_token: $GITHUB_KEY # defined via the Travis interface
         #local_dir: build/html
         on:
          tags: true
