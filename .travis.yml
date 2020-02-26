@@ -1,12 +1,5 @@
-sudo: true
+
 language: java
-dist: trusty
-os: linux
-before_install:
-  - rm ~/.m2/settings.xml
-#  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-install:
-  - sudo pip install sphinx requests
 
 jobs: 
   include: 
@@ -30,5 +23,11 @@ jobs:
       - "sh './scripts/tests.sh'"
     - stage: deploy	
       name: deploying
-      script: "sh './scripts/deploy.sh'"
+      provider: releases
+      api_key: $GITHUB_API_KEY
+      skip-cleanup: true
+      on:
+        tags: true
+        all_branches: true
+      #script: "sh './scripts/deploy.sh'"
 
