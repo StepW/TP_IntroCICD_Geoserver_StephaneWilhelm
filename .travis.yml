@@ -30,7 +30,7 @@ deploy:
 
 
 install: true
-script: mvn src clean install
+script: mvn clean install
 
 
 
