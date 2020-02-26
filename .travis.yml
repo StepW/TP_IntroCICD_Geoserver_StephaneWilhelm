@@ -1,6 +1,4 @@
-
 language: java
-
 
 cache:
   directories:
@@ -9,28 +7,22 @@ cache:
 before_install:
   - cd src
 
-
-#jdk:
-#  - oraclejdk8
-  #- oraclejdk11
-
 jdk:
  - openjdk8
  - openjdk11
 
 deploy:
-      name: deploying
+    - name: deploying
       provider: releases
       api_key: $GITHUB_API_KEY
       skip_cleanup: true
       on:
         tags: true
         all_branches: true
-      #script: "sh './scripts/deploy.sh'"
-
-
+        
 install: true
-script: mvn clean install
+script: 
+    - mvn clean install
 
 
 
