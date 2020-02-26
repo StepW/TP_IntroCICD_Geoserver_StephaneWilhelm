@@ -49,7 +49,6 @@ jobs:
     script:
       - mvn -DskipTests clean install
       - cd ../doc/en
-      - cd doc/en
       - mvn clean install
       - mvn process-resources
       - mvn compile
