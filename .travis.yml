@@ -4,44 +4,65 @@ cache:
   directories:
   - $HOME/.m2
 
-before_install:
-  - cd src
+#before_install:
+#  - cd src
 
-jdk:
- - openjdk8
- - openjdk11
+#jdk:
+# - openjdk8
+# - openjdk11
 
-before_deploy:
-  - echo "deploying"
+#before_deploy:
+#  - echo "deploying"
 
-deploy:
-    - name: deploying
-      provider: releases
-      api_key: $GITHUB_API_KEY
-      skip_cleanup: true
-      on:
-        tags: true
-        all_branches: true
+#deploy:
+#    - name: deploying
+#      provider: releases
+#      api_key: $GITHUB_API_KEY
+#      skip_cleanup: true
+#      on:
+#        tags: true
+#        all_branches: true
         
-install: true
-script: 
+#install: true
+#script: 
     # src building
     #- mvn clean install
     # without test
-    - echo "building and testing"
-    - mvn -DskipTests clean install
+#    - echo "building and testing"
+#    - mvn -DskipTests clean install
     # doc building
-after_success:
-    - cd ../doc/en
-    - mvn clean install
-    - mvn process-resources
-    - mvn compile
-    - mvn compile -Puser
-    - mvn compile -Pdeveloper
-    - mvn compile -Pdocguide
+#after_success:
+#    - cd ../doc/en
+#    - mvn clean install
+#    - mvn process-resources
+#    - mvn compile
+#    - mvn compile -Puser
+#    - mvn compile -Pdeveloper
+#    - mvn compile -Pdocguide
 
 
-
+jobs:
+ include:
+  - stage: build
+    script:
+      - cd doc/en
+      - mvn clean install
+      - mvn process-resources
+      - mvn compile
+      - mvn compile -Puser
+      - mvn compile -Pdeveloper
+      - mvn compile -Pdocguide
+      - cd ../../src
+  - stage: test
+    name: jdk8
+    jdk: openjdk8
+    script: mvn clean install
+  - name: jdk11
+    jdk: openjdk11
+    script: mvn clean install
+  - stage: deploy
+    script: echo 'do deploy'
+    
 
 #jobs: 
 #  include: 
