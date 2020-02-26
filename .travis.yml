@@ -22,8 +22,13 @@ deploy:
         
 install: true
 script: 
+    #- mvn clean install
+    - mvn -DskipTests clean install
+    - cd ../doc/en
     - mvn clean install
-
+    - mvn process-resources
+    - mvn compile
+    - mvn assembly:single
 
 
 
