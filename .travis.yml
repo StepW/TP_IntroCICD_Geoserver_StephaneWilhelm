@@ -61,6 +61,8 @@ jobs:
     jdk: openjdk8
     script: mvn clean install
   - name: jdk11
+    before_install:
+    - cd src
     jdk: openjdk11
     script: mvn clean install
   - stage: deploy
