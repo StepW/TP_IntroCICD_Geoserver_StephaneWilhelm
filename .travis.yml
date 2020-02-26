@@ -72,8 +72,8 @@ jobs:
   - stage: deploy
     #script: echo 'do deploy'
     before-deploy:
-     - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-     - cd doc/en
+     #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+     - cd ../doc/en
     deploy:
         provider: releases 
         skip_cleanup: true
