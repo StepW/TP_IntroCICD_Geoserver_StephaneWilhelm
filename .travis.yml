@@ -74,7 +74,8 @@ jobs:
     #script: echo 'do deploy'
     before_deploy:
      #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-     - cd doc/en
+     - ls
+     - cd ../doc/en
     deploy:
         provider: releases 
         skip_cleanup: true
