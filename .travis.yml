@@ -13,7 +13,7 @@ jdk:
 
 deploy:
     - name: deploying
-      provider: release
+      provider: pages.git
       api_key: $GITHUB_API_KEY
       skip_cleanup: true
       on:
