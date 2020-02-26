@@ -62,16 +62,18 @@ jobs:
       - cd src
     name: jdk8
     jdk: openjdk8
-    script: mvn clean install
+    #script: mvn clean install
+    script: echo 'test'
   - name: jdk11
     before_install:
     - cd src
     jdk: openjdk11
-    script: mvn clean install
+    #script: mvn clean install
+    script: echo 'test'
   - stage: deploy
     #script: echo 'do deploy'
     deploy:
-        provider: pages # deploy on github pages
+        provider: pages 
         skip_cleanup: true
         github_token: $GITHUB_API_KEY # defined via the Travis interface
         #local_dir: build/html
