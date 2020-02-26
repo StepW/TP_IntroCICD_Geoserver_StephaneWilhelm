@@ -47,14 +47,15 @@ jobs:
     before_install:
       - cd src
     script:
-      - echo 'build'
-      #- cd doc/en
-      #- mvn clean install
-      #- mvn process-resources
-      #- mvn compile
-      #- mvn compile -Puser
-      #- mvn compile -Pdeveloper
-      #- mvn compile -Pdocguide
+      - mvn -DskipTests clean install
+      - cd ../doc/en
+      - cd doc/en
+      - mvn clean install
+      - mvn process-resources
+      - mvn compile
+      - mvn compile -Puser
+      - mvn compile -Pdeveloper
+      - mvn compile -Pdocguide
       #- cd ../../src
       # - mvn -DskipTests clean install
   - stage: test
