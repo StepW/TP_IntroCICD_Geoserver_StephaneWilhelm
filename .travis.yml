@@ -4,12 +4,6 @@ cache:
   directories:
   - $HOME/.m2
 
-env:
-  global:
-    - MAVEN_OPTS=-Xmx512m
-    - MAVEN_VERSION=3.6.3
-    - TAKARI_SMART_BUILDER_VERSION=0.6.1
-
 before_install:
   - cd src
 
