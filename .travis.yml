@@ -75,7 +75,7 @@ jobs:
      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
      - cd doc/en
     deploy:
-        provider: pages 
+        provider: releases 
         skip_cleanup: true
         github_token: $GITHUB_KEY # defined via the Travis interface
         #local_dir: build/html
