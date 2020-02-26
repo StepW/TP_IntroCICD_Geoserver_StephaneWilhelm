@@ -56,7 +56,7 @@ jobs:
       #- mvn compile -Pdeveloper
       #- mvn compile -Pdocguide
       #- cd ../../src
-      - mvn -DskipTests clean install
+      # - mvn -DskipTests clean install
   - stage: test
     before_install:
       - cd src
@@ -64,8 +64,8 @@ jobs:
     jdk: openjdk8
     script: mvn clean test
   - name: jdk11
-    before_install:
-    - cd src
+#    before_install:
+#    - cd src
     jdk: openjdk11
     script: mvn clean test
   - stage: deploy
