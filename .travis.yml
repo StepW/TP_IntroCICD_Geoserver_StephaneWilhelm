@@ -45,14 +45,15 @@ jobs:
  include:
   - stage: build
     script:
-      - cd doc/en
-      - mvn clean install
-      - mvn process-resources
-      - mvn compile
-      - mvn compile -Puser
-      - mvn compile -Pdeveloper
-      - mvn compile -Pdocguide
-      - cd ../../src
+      - echo 'build'
+      #- cd doc/en
+      #- mvn clean install
+      #- mvn process-resources
+      #- mvn compile
+      #- mvn compile -Puser
+      #- mvn compile -Pdeveloper
+      #- mvn compile -Pdocguide
+      #- cd ../../src
   - stage: test
     before_install:
       - cd src
