@@ -11,7 +11,15 @@ jdk:
  - openjdk8
  - openjdk11
 
-
+deploy:
+      name: deploying
+      provider: releases
+      api_key: $GITHUB_API_KEY
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
+      #script: "sh './scripts/deploy.sh'"
 
 
 #jobs: 
