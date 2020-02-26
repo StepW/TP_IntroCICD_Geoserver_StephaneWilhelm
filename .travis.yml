@@ -54,6 +54,8 @@ jobs:
       - mvn compile -Pdocguide
       - cd ../../src
   - stage: test
+    before_install:
+      - cd src
     name: jdk8
     jdk: openjdk8
     script: mvn clean install
