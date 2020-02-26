@@ -1,6 +1,6 @@
 
 language: java
-dist: xenial
+
 
 #jdk:
 #  - oraclejdk8
@@ -9,7 +9,7 @@ dist: xenial
 jdk:
  - openjdk8
  - openjdk11
-
+script: ant build
 
 
 
