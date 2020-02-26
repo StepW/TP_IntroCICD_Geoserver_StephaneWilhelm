@@ -1,2 +1,2 @@
-cd src/wms
+cd src
 mvn deploy
