@@ -31,7 +31,6 @@ script:
     - mvn compile -Puser
     - mvn compile -Pdeveloper
     - mvn compile -Pdocguide
-    - mvn assembly:single
 
 
 
