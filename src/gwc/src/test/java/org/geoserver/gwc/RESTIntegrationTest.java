@@ -117,6 +117,7 @@ public class RESTIntegrationTest extends GeoServerSystemTestSupport {
         final String url = "gwc/rest/layers/" + layerName + ".xml";
 
         MockHttpServletResponse response = putLayer(url, "badId", layerName);
+        
         assertThat(response, hasProperty("status", equalTo(HttpServletResponse.SC_BAD_REQUEST)));
         assertThat(
                 response,
