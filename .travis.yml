@@ -1,7 +1,8 @@
 
 language: java
 
-
+before_install:
+  - cd src
 #jdk:
 #  - oraclejdk8
   #- oraclejdk11
