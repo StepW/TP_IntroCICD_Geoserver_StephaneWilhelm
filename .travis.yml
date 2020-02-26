@@ -28,6 +28,9 @@ script:
     - mvn clean install
     - mvn process-resources
     - mvn compile
+    - mvn compile -Puser
+    - mvn compile -Pdeveloper
+    - mvn compile -Pdocguide
     - mvn assembly:single
 
 
