@@ -23,10 +23,11 @@ deploy:
 install: true
 script: 
     # src building
-    - mvn clean install
+    #- mvn clean install
     # without test
-    #- mvn -DskipTests clean install
+    - mvn -DskipTests clean install
     # doc building
+after_success:
     - cd ../doc/en
     - mvn clean install
     - mvn process-resources
