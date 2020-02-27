@@ -15,10 +15,18 @@ Damien Duportail a été ajouté en tant que contributeur pour lui permettre de 
 Les composants suivant du projet devront être manipulés:
  - le code source src, où devront être effectués le build et les test de l'application
  - la documentation doc, où est déployée un site statique html de documentation du projet, c'est celui ci qui devra être construit et déployé sur chaque branche du projet.
+Le gestionnaire de dépendances maven est utilisé pour lancer les commandes de build et de test.
 
+A l'aide d'une pipeline, je souhaite réaliser les tâches suivantes:
+ - Build: Je souhaite compiler le projet du répoertoire source "src" et créer un package dans un répertoire cible "target". Je souhaite également compiler et construire la documentation web statique dans "doc", la construction est réalisée à l'aide de maven. Des pages html sont générées et donne accès à la documentation voulue ainsi que les acces aux autres pages. Il est proposé dans le readme de généré une API associé à swagger.
+ - Test: Dans ce cas de figure, je souhaite réaliser des tests parallèles sur deux versions de java différents: openjdk8 et openjdk11. Ici passe tout sorte de tests: unitaires, intégration, non-régression, simulation d'erreur.... La commande d'installation fournie permet de passer tous les tests, je souhaite l'utiliser pour les différentes plateformes java pour visualiser la compatibilité et la vitesse d'éxécution.
+ - Deploy: Je souhaite déployer la documentation de l'application dans un site web statique sur chaque branche dans le gestionnaire de code source. Une fois le déploiement effectué, je souhaite visualiser le site associé au projet à l'aide de gh-pages associé à l'option github pages. 
 
+ Des travaux de recherche sont effectuer pour trouver comment sont réalisées les pipelines de déploiement dans travis, ainsi que les "jobs" et les méthodes de déploiement. De nombreuses façons de faire les pipelines sont présentées, je souhaite réaliser les tâches par "jobs" pour visualiser le déroulé de l'intégration sur Travis. Seules les commandes indiquées dans les "readme" sont utilisées, étant données que les autres commandes maven ("mvn test", "mvn compile",...) ne fonctionnent pas. 
+ 
+Les étapes de build seules concistent à utiliser la commande indiquée dans le readme, en donnant la commande pour passer les étapes de tests. 
 
-
+De nombreuses difficultés ont été rencontrées. Notament dans la façon de construire le pipeline sans renvoyer d'erreur et de pour trouver un moyen optimal de déployer la documentation sur un site.
 
 
 
