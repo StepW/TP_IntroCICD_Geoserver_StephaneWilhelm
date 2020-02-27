@@ -79,13 +79,13 @@ jobs:
      - cd doc/en
     deploy:
         provider: releases 
-        api_key: $GITHUB_TOKEN
+        api_key: ${GITHUB_TOKEN}
         file: doc/en/target/docguide/html
          # defined via the Travis interface
         #local_dir: build/html
         skip_cleanup: true
         on:
-         tags: true
+         #tags: true
          all-branches: true
      #repo: doc/en/target/docguide/html
 #jobs: 
