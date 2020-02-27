@@ -26,6 +26,7 @@ jobs:
   # L'étape de test va faire deux tests parallèles sur deux plateformes java différents : openjdk8 et openjdk11
   # Le build de l'application passe automatiquement les tests unitaires et les test d'intégration suivant la configuration intégrée 
   # Le code à tester est effectié dans le répertoire "src".
+  # ATTENTION : les tests peuvent parfois échouer dans le build travis pour des raisons inexpliquées
   - stage: test
     before_install:
       - cd src
@@ -43,12 +44,19 @@ jobs:
   - stage: deploy
     script:
      - cd doc/en
+     - echo 'deploy on multiple branches!'
     deploy:
      provider: pages
      api_key: $GITHUB_TOKEN
+     # répertoire où doit être situé la page web html à ouvrir
      local_dir: target/docguide/html
      skip_cleanup: true
+     # j'ai essayé de déployer le site de manière sur github comme souhaité à l'aide de providers comme gh-pages, et même en essayant d'autres providers comme release
+     # un token a été créé sur github et peut être lu sur Travis.
+     
+     # le fait de lasser tag: true doit "simuler" le bon fonctionnement du code en interrompant le déploiement en étant pas un "tagget commit", le stage "deploy" ne fonctionne pas réellement
+     # desactiver tags : ture peut  déclencher une erreur
      on:
-     # tag est cense "simuler" le bon fonctionnement du code en interrompant le déploiement en étant pas un "tagget commit"
       tags: true
+     # all branches doit faire le déploiement du site sur toutes les branches
       all_branches: true
