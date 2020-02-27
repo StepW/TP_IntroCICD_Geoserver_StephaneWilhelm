@@ -85,7 +85,7 @@ jobs:
         #local_dir: build/html
         skip_cleanup: true
         on:
-         # tags: true
+         tags: true
          all-branches: true
      #repo: doc/en/target/docguide/html
 #jobs: 
