@@ -80,8 +80,7 @@ jobs:
     deploy:
         provider: releases 
         skip_cleanup: true
-        api_key:
-         secure: vQjfigsvmQ5307_4wnwsIA
+        api_key: $GITHUB_OAUTH_TOKEN
          # defined via the Travis interface
         #local_dir: build/html
     on:
