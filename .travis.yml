@@ -1,60 +1,20 @@
+#le langage utilisé est java
 language: java
 
+# le cache est sencé faire un "speed up" du build
 cache:
   directories:
   - $HOME/.m2
 
-# git_token: 89080932bf38abbcbe23df5c76996c3bffd4966c
-#env:
-# global:
- # - secure:
-#  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/YOU/YOUR_REPO.git
-#  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/StepW/TP_IntroCICD_Geoserver_StephaneWilhelm.git
-
-#before_install:
-#  - cd src
-
-#jdk:
-# - openjdk8
-# - openjdk11
-
-#before_deploy:
-#  - echo "deploying"
-
-#deploy:
-#    - name: deploying
-#      provider: releases
-#      api_key: $GITHUB_API_KEY
-#      skip_cleanup: true
-#      on:
-#        # tags: true
-#        all_branches: true
-        
-#install: true
-#script: 
-    # src building
-    #- mvn clean install
-    # without test
-#    - echo "building and testing"
-#    - mvn -DskipTests clean install
-    # doc building
-#after_success:
-#    - cd ../doc/en
-#    - mvn clean install
-#    - mvn process-resources
-#    - mvn compile
-#    - mvn compile -Puser
-#    - mvn compile -Pdeveloper
-#    - mvn compile -Pdocguide
-
-
+# les différentes étapes d'intégration/ déploiement
 jobs:
  include:
-  - stage: build
+ # le build compile le projet sans faire les tests et. La documentation statique est également construite, des fichiers html reliés sont générée dans un répertoire target/doc/docguide/html
+ # les commandes sont trouvées à partir du README fourni dans le projet
+ - stage: build
     before_install:
       - cd src
     script:
-     # - echo 'build'
       - mvn -DskipTests clean install
       - cd ../doc/en
       - mvn clean install
@@ -63,74 +23,32 @@ jobs:
       - mvn compile -Puser
       - mvn compile -Pdeveloper
       - mvn compile -Pdocguide
+  # L'étape de test va faire deux tests parallèles sur deux plateformes java différents : openjdk8 et openjdk11
+  # Le build de l'application passe automatiquement les tests unitaires et les test d'intégration suivant la configuration intégrée 
+  # Le code à tester est effectié dans le répertoire "src".
   - stage: test
     before_install:
       - cd src
     name: jdk8
     jdk: openjdk8
     script: mvn clean install
-#    script: echo 'test'
+
   - name: jdk11
     before_install:
     - cd src
     jdk: openjdk11
     script: mvn clean install
-#    script: echo 'test'
+# Le deploiement est sencée se faire pour la documentation geoserver générée sur chaque branche à l'aide du mobule "gh-pages" dans github
+# ceci se fait dans les options de github en choisisant les branches de déploiement du site.
   - stage: deploy
-  #- name: deploy
-    #script: echo 'do deploy'
-
-    
     script:
-     #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
      - cd doc/en
-    # - mvn clean install
-    # - mvn process-resources
-    # - mvn compile
     deploy:
      provider: pages
      api_key: $GITHUB_TOKEN
      local_dir: target/docguide/html
      skip_cleanup: true
      on:
+     # tag est cense "simuler" le bon fonctionnement du code en interrompant le déploiement en étant pas un "tagget commit"
       tags: true
       all_branches: true
-
-   # deploy:
-   #     provider: releases 
-   #     api_key: $GITHUB_API_KEY
-        #api_key:
-        # file: target/docguide/html
-         # defined via the Travis interface
-   #     local_dir: target/docguide/html
-   #     skip_cleanup: true
-   #     on:
-         #tags: true
-   #      all-branches: true
-     #repo: doc/en/target/docguide/html
-#jobs: 
-#  include: 
-#    - stage: build
-#      name: building-project
-#      script: "sh './scripts/build.sh'"
-#    - stage: test
-#      name: test on jdk8
-#      jdk: openjdk8
-#      script:
-#      - "sh './scripts/tests.sh'"
-#    - name: test on jdk11
-#      jdk: oraclejdk11
-#      script: 
-#      - "sh './scripts/tests.sh'"
-#    - stage: deploy	
-#      script: "sh './scripts/deploy.sh'"
-#deploy:
-#      name: deploying
-#      provider: releases
-#      api_key: $GITHUB_API_KEY
-#      skip_cleanup: true
-#      on:
-#        tags: true
-#        all_branches: true
-#      #script: "sh './scripts/deploy.sh'"
-
