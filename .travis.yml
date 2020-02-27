@@ -1,4 +1,4 @@
-#le langage utilisé est java
+# le langage utilisé est java
 language: java
 
 # le cache est sencé faire un "speed up" du build
@@ -11,7 +11,7 @@ jobs:
  include:
  # le build compile le projet sans faire les tests et. La documentation statique est également construite, des fichiers html reliés sont générée dans un répertoire target/doc/docguide/html
  # les commandes sont trouvées à partir du README fourni dans le projet
- - stage: build
+  - stage: build
     before_install:
       - cd src
     script:
