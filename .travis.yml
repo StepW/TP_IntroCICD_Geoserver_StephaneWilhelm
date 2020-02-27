@@ -55,7 +55,7 @@ jobs:
       - cd src
     script:
      # - echo 'build'
-     # - mvn -DskipTests clean install
+      - mvn -DskipTests clean install
       - cd ../doc/en
       - mvn clean install
       - mvn process-resources
@@ -63,18 +63,18 @@ jobs:
       - mvn compile -Puser
       - mvn compile -Pdeveloper
       - mvn compile -Pdocguide
-#  - stage: test
-#    before_install:
-#      - cd src
-#    name: jdk8
-#    jdk: openjdk8
-#    #script: mvn clean install
+  - stage: test
+    before_install:
+      - cd src
+    name: jdk8
+    jdk: openjdk8
+    script: mvn clean install
 #    script: echo 'test'
-#  - name: jdk11
-#    before_install:
-#    - cd src
-#    jdk: openjdk11
-#    #script: mvn clean install
+  - name: jdk11
+    before_install:
+    - cd src
+    jdk: openjdk11
+    script: mvn clean install
 #    script: echo 'test'
   - stage: deploy
   #- name: deploy
@@ -92,8 +92,9 @@ jobs:
      api_key: $GITHUB_TOKEN
      local_dir: target/docguide/html
      skip_cleanup: true
-     on: 
-      all-branches: true
+     on:
+      tags: true
+      all_branches: true
 
    # deploy:
    #     provider: releases 
