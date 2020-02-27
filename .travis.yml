@@ -1,6 +1,5 @@
 language: java
 
-
 cache:
   directories:
   - $HOME/.m2
@@ -9,6 +8,7 @@ cache:
 env:
  global:
   - secure: 5b699a6b6925048ac9156d3072f84f4de13af9f3
+  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/YOU/YOUR_REPO.git
 #  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/StepW/TP_IntroCICD_Geoserver_StephaneWilhelm.git
 
 #before_install:
