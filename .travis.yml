@@ -1,7 +1,7 @@
 # le langage utilisé est java
 language: java
 
-# le cache est sencé faire un "speed up" du build
+# le cache est censé faire un "speed up" du build
 cache:
   directories:
   - $HOME/.m2
