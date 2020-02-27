@@ -4,10 +4,10 @@ cache:
   directories:
   - $HOME/.m2
 
-# git_token: 5b699a6b6925048ac9156d3072f84f4de13af9f3
+# git_token: 89080932bf38abbcbe23df5c76996c3bffd4966c
 #env:
 # global:
- # - secure: 5b699a6b6925048ac9156d3072f84f4de13af9f3
+ # - secure:
 #  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/YOU/YOUR_REPO.git
 #  - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/StepW/TP_IntroCICD_Geoserver_StephaneWilhelm.git
 
@@ -99,8 +99,6 @@ jobs:
    #     provider: releases 
    #     api_key: $GITHUB_API_KEY
         #api_key:
-   #      secure: 5b699a6b6925048ac9156d3072f84f4de13af9f3
-        # secure: 25e883285b9e15cc29481bb25f6bcad68cdfe6da
         # file: target/docguide/html
          # defined via the Travis interface
    #     local_dir: target/docguide/html
