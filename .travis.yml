@@ -5,7 +5,7 @@ cache:
   directories:
   - $HOME/.m2
 
-
+# git_token: 5b699a6b6925048ac9156d3072f84f4de13af9f3
 #env:
 # global:
 #  - secure: 25e883285b9e15cc29481bb25f6bcad68cdfe6da
@@ -86,9 +86,9 @@ jobs:
      - cd doc/en
     deploy:
         provider: releases 
-        #api_key: $GITHUB_API_KEY
-        api_key:
-         secure: 25e883285b9e15cc29481bb25f6bcad68cdfe6da
+        api_key: $GITHUB_API_KEY
+        #api_key:
+        # secure: 25e883285b9e15cc29481bb25f6bcad68cdfe6da
         file: target/docguide/html
          # defined via the Travis interface
         #local_dir: build/html
