@@ -32,6 +32,7 @@ public class EnviromentInjectionCallbackTest extends GeoServerSystemTestSupport 
         assertEquals(200, r.getStatus());
         assertTrue(r.getContentType().startsWith("text/plain"));
         assertEquals("USER_NOT_FOUND", r.getContentAsString());
+        assertEquals(1,5);
     }
 
     @Test
